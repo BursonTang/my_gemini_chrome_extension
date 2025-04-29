@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "My chrome extension with Gemini",
+    "version": "1.0",
+    "description": "This is a Chrome extension that is designed to facilitate website browsering.Currently, there are following functions: 1. Translate selected text in Chrome browser with Gemini API by right-clicking and selecting 'Translate' element. ",
+
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "contextMenus",
+        "storage"
+    ],
+
+    "host_permissions": ["<all_urls>"],
+
+    "action":{
+        "default_popup": "popup.html",
+        "default_icon": "book.png"
+    },
+
+    "content_scripts": [
+    {
+        "matches": ["<all_urls>"],
+        "js": ["marked.min.js", "content.js"]
+    }],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "options_page": "options.html",
+
+    "web_accessible_resources": [
+        {
+          "resources": ["marked.min.js"],
+          "matches": ["<all_urls>"]
+        }
+      ]
+}
