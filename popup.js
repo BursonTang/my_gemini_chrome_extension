@@ -1,7 +1,14 @@
-// document.getElementById("saveOptions").addEventListener("click", () => {
-//     console.log("Saving options...");
-// });
+// Dynamically load marked.min.js
+function loadMarkedLibrary() {
+  const script = document.createElement("script");
+  script.src = "marked.min.js";
+  script.onload = () => console.log("marked.min.js loaded successfully.");
+  script.onerror = () => console.error("Failed to load marked.min.js.");
+  document.head.appendChild(script);
+}
 
+// Load the library
+loadMarkedLibrary();
 
 const targetLanguageSelect = document.getElementById('targetLanguage');
 const saveButton = document.getElementById('saveOptions');
@@ -57,7 +64,8 @@ document.getElementById("summarize").addEventListener("click", async () => {
               summaryType,
               result.geminiApiKey
             );
-            resultDiv.innerText = summary;
+            // resultDiv.innerText = summary;
+            resultDiv.innerHTML = marked.parse(summary);
           } catch (error) {
             resultDiv.innerText = `Error: ${
               error.message || "Failed to generate summary."

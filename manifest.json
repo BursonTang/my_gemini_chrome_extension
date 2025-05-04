@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "My chrome extension with Gemini",
     "version": "1.0",
-    "description": "This is a Chrome extension that is designed to facilitate website browsering.Currently, there are following functions: 1. Translate selected text in Chrome browser with Gemini API by right-clicking and selecting 'Translate' element. ",
+    "description": "This is a Chrome extension that is designed to facilitate website browsering. Currently, there are following functions: 1. Translate selected text in Chrome browser with Gemini API by right-clicking and selecting 'Translate' element; and 2. Summary article (text) in chrome brower with Gemini API in popup window.",
 
     "permissions": [
         "scripting",
